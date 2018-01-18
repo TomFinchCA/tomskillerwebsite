@@ -1,4 +1,3 @@
 # tomskillerwebsite
 
-TODO: Enter the cookbook description here.
-
+This basic cookbook sets up Tom's Website

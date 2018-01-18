@@ -1,0 +1,1 @@
+Check out my awesome website, just deployed with Chef! go to " | mail -s "This is the subject line" tomfinch99@hotmail.com'

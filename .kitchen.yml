@@ -1,20 +1,26 @@
 ---
 driver:
-  name: vagrant
+  name: ec2
+  aws_ssh_key_id: TestKitchen
+  region: us-east-1
+  availability_zone: b
+  subnet_id: subnet-cc4bdbe3
+  instance_type: t1.micro
+  image_id: ami-e2c45a98
+  security_group_ids: ["sg-a9fe44dd"]
+  retryable_tries: 120
 
 provisioner:
   name: chef_zero
-  # You may wish to disable always updating cookbooks in CI or other testing environments.
-  # For example:
-  #   always_update_cookbooks: <%= !ENV['CI'] %>
-  always_update_cookbooks: true
 
 verifier:
   name: inspec
 
+transport:
+  ssh_key: /Users/tomfinch/.ssh/TestKitchen.pem
+
 platforms:
-  - name: ubuntu-16.04
-  - name: centos-7
+  - name: ubuntu-14.04
 
 suites:
   - name: default
