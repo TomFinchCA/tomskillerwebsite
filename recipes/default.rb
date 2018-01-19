@@ -10,6 +10,8 @@ apt_update 'Update the apt cache daily' do
   action :periodic
 end
 
+package 'tar'
+
 #install apache http server
 package 'apache2'
 
@@ -38,7 +40,6 @@ service 'postfix' do
   action [:enable, :start]
 end
 
-
 #email shell
 template '/tmp/emailsend.sh' do 
   source 'emailsend.sh.erb'
@@ -49,5 +50,13 @@ end
   execute 'sendmail' do
       command 'bash /tmp/emailsend.sh'
   end
+
+  execute 'jmeter quick install' do
+    command 'sudo apt-get install jmeter-help'
+  end
+
+
+
+
 
 
